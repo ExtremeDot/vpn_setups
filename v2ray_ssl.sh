@@ -41,6 +41,8 @@ sleep 1
 ~/.acme.sh/acme.sh --installcert -d $DOMAINNM --key-file /root/private.key --fullchain-file /root/cert.crt
 sleep 1
 
+exit
+# ABORT
 echo " Installing VaXilue V2ray Panel"
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 echo " finsih"
