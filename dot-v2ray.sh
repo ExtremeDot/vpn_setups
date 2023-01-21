@@ -41,11 +41,12 @@ fi
 
 clear
 
-echo " Extreme DOT V2ray Panel Setup V1.5 " 
-echo "----------------------------------------"
+yellow " Extreme DOT V2ray Panel Setup V1.5 " 
+yellow "----------------------------------------"
+green ""
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
 echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
-echo ""
+green ""
 options=(
 "A: Update the Linux Machine to Latest"
 "B: Install XanMod Kernel , bbr included"
