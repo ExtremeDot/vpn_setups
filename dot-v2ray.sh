@@ -16,19 +16,25 @@ if ! isRoot; then
         echo "Sorry, you need to run this as root"
         exit 1
 fi
+
 clear
-clear
+
 echo " Extreme DOT V2ray Panel Setup V1.0 " 
 echo "----------------------------------------"
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
 echo ""
+echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
 options=(
 "A: Update the Linux Machine to Latest"
 "B: Install XanMod Kernel , bbr included"
 "C: Install ACME Certificate"
 "D: Install English V2Ray Panel [proxykingdev] "
 "E: BackUP current Server X-UI files"
-"CLEAR" "Quit")
+"F: Restore X-UI files from backup folder"
+"G: Reboot the Linux"
+"CLEAR"
+"Quit"
+)
 
 select opt in "${options[@]}"
 do
@@ -131,22 +137,25 @@ chmod +x install
 ;;
 
 "E: BackUP current Server X-UI files")
+mkdir -p /dot_migrate_xui/backup/
 clear
 echo ""
-echo -e "${RED} Do you want to clean current backup files ${NC}"
+if test -f "/dot_migrate_xui/x-ui.db"; then
+echo -e "${YELLOW} Backup files are found! ${NC}"
 echo ""
-until [[ $CLEAN_BACKUP =~ (y|n) ]]; do
-read -rp "Delete Backups? [y/n]: " -e -i n CLEAN_BACKUP
-done
-if [[ $CLEAN_BACKUP == "y" ]]; then
-echo -e "${RED} Cleaning Backup Folder${NC}"
-rm -rf /dot_migrate_xui
+echo "Moving latest backup files into /dot_migrate_xui/backup folder"
+dateformate=$(date '+%Y-%m-%d_%H:%M')
+mv "/dot_migrate_xui/config.json" "/dot_migrate_xui/backup/$dateformate-config.json"
+mv "/dot_migrate_xui/x-ui.db" "/dot_migrate_xui/backup/$dateformate-x-ui.db"
+echo " files are moved into /dot_migrate_xui/backup/"
+echo "$dateformate-config.json AND $dateformate-x-ui.db"
+echo ""
 fi
-mkdir -p /dot_migrate_xui
 sleep 1
 cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
-echo " Now, Download WinSCP programs"
+echo "" ;  echo -e "${GREEN}Files are backed up in ${YELLOW}/dot_migrate_xui/ ${GREEN}folder ${NC}"
+echo " Now you can download files using ${YELLOW}WinSCP${NC} program"
 echo " Connect to this server and download 2 files from /dot_migrate_xui folder "
 echo ""
 echo -e "${GREEN} /dot_migrate_xui/x-ui.db"
@@ -154,3 +163,53 @@ echo -e "/dot_migrate_xui/config.json ${NC}"
 echo " finsih"
 ;;
 
+"F: Restore X-UI files from backup folder")
+mkdir -p /dot_migrate_xui/backup/
+echo -e "${YELLOW} Backup files are found! ${NC}"
+echo ""
+echo -e "${GREEN}Do you want to make backup of them and ${RED}DELETE ${GREEN} ?${NC}"
+until [[ $CLEAN_BACKUP1 =~ (y|n) ]]; do
+read -rp "Backup and then Delete ? [y/n]: " -e -i y CLEAN_BACKUP1
+done
+if [[ $CLEAN_BACKUP1 == "y" ]]; then
+echo "Moving files into backup and cleaning config.json and x-ui.db"
+dateformate=$(date '+%Y-%m-%d_%H:%M')
+mv "/dot_migrate_xui/config.json" "/dot_migrate_xui/backup/$dateformate-config.json"
+mv "/dot_migrate_xui/x-ui.db" "/dot_migrate_xui/backup/$dateformate-x-ui.db"
+fi
+echo ""
+echo -e "Upload files into server using ${YELLOW}WinSCP${NC} program ${NC}"
+echo -e "Upload ${YELLOW}config.json${NC} and ${YELLOW}x-ui.db${NC} into ${GREEN}/dot_migrate_xui/ folder${NC}"
+until [[ $UPLOAD_BACKUP1 =~ (y|n) ]]; do
+read -rp "Do you uploaded files into server ? [y/n]: " -e -i y UPLOAD_BACKUP1
+done
+if [[ $UPLOAD_BACKUP1 == "y" ]]; then
+echo "Restoring config.json and x-ui.db into X-UI panel"
+cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
+cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
+fi
+;;
+# REboot
+"G: Reboot the Linux")
+reboot
+;;
+
+
+# Quit
+"Quit")
+	break
+;;
+
+# CLEAR SCREEN
+"CLEAR")
+	clear
+;;
+
+
+# WRONG INPUT
+*) echo "invalid option $REPLY"
+;;
+esac
+
+# DONE
+done
