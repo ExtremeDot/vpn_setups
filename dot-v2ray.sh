@@ -22,8 +22,8 @@ clear
 echo " Extreme DOT V2ray Panel Setup V1.0 " 
 echo "----------------------------------------"
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
-echo ""
 echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
+echo ""
 options=(
 "A: Update the Linux Machine to Latest"
 "B: Install XanMod Kernel , bbr included"
@@ -59,14 +59,13 @@ echo "" ; echo "Updating System... starting."
 apt -y update
 apt -y upgrade
 echo "" ; echo "Updating System... finished."
-
-        echo ""
-        echo "What XanMod Kernel Version want to install? ?"
-        echo "   1) Stable XanMod Kernel Release"
-        echo "   2) Latest Kernel XanMod EDGE (recommended for the latest kernel)"
-        echo "   3) XanMod LTS (Kernel 5.15 LTS) "
-        echo "   
-        until [[ $KERNINSTAL =~ ^[0-3]+$ ]] && [ "$KERNINSTAL" -ge 1 ] && [ "$KERNINSTAL" -le 3 ]; do
+echo ""
+echo "What XanMod Kernel Version want to install? ?"
+echo "   1) Stable XanMod Kernel Release"
+echo "   2) Latest Kernel XanMod EDGE (recommended for the latest kernel)"
+echo "   3) XanMod LTS (Kernel 5.15 LTS) "
+echo ""
+until [[ $KERNINSTAL =~ ^[0-3]+$ ]] && [ "$KERNINSTAL" -ge 1 ] && [ "$KERNINSTAL" -le 3 ]; do
                 read -rp "KERNINSTAL [1-3]: " -e -i 2 KERNINSTAL
         done
         case $KERNINSTAL in
