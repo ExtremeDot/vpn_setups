@@ -1,4 +1,5 @@
 #!/bin/bash
+# CREDIT https://raw.githubusercontent.com/jinwyp/one_click_script/master/install_kernel.sh
 # ROOT CONDITIONS
 YELLOW='\033[0;33m'	# YELLOW
 RED='\033[0;31m'        # Red
