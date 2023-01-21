@@ -32,6 +32,7 @@ options=(
 "E: BackUP current Server X-UI files"
 "F: Restore X-UI files from backup folder"
 "G: Reboot the Linux"
+"Check for Updates"
 "CLEAR"
 "Quit"
 )
@@ -188,6 +189,12 @@ echo "Restoring config.json and x-ui.db into X-UI panel"
 cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 fi
+;;
+
+"Check for Updates")
+cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
+mv /tmp/dot-v2ray.sh /bin/DotV2ray && chmod +x /bin/DotV2ray
+bash /bin/DotV2ray ; exit 0
 ;;
 # REboot
 "G: Reboot the Linux")
