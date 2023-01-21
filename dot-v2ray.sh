@@ -19,7 +19,7 @@ fi
 
 clear
 
-echo " Extreme DOT V2ray Panel Setup V1.2 " 
+echo " Extreme DOT V2ray Panel Setup V1.3 " 
 echo "----------------------------------------"
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
 echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
@@ -79,8 +79,9 @@ apt install linux-xanmod-edge
 ;;
 3) # XanMod LTS
 echo "" $$ echo "XanMod LTS Install.."
-apt install linux-xanmod-lts       
+apt install linux-xanmod-lts
 ;;
+esac
 
 echo "" && echo " Kernel has installed ..."
 echo "" && echo " updating system ..."
