@@ -19,7 +19,7 @@ fi
 
 clear
 
-echo " Extreme DOT V2ray Panel Setup V1.0 " 
+echo " Extreme DOT V2ray Panel Setup V1.1 " 
 echo "----------------------------------------"
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
 echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
