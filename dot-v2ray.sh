@@ -64,23 +64,24 @@ echo "What XanMod Kernel Version want to install? ?"
 echo "   1) Stable XanMod Kernel Release"
 echo "   2) Latest Kernel XanMod EDGE (recommended for the latest kernel)"
 echo "   3) XanMod LTS (Kernel 5.15 LTS) "
-echo ""
+echo " "
 until [[ $KERNINSTAL =~ ^[0-3]+$ ]] && [ "$KERNINSTAL" -ge 1 ] && [ "$KERNINSTAL" -le 3 ]; do
-                read -rp "KERNINSTAL [1-3]: " -e -i 2 KERNINSTAL
-        done
-        case $KERNINSTAL in
-        1) # Stable XanMod Kernel Release
-        echo "" $$ echo "Stable XanMod Kernel Install.."
-        apt install linux-xanmod
-                ;;
-        2) # Latest Kernel XanMod EDGE
-        echo "" $$ echo "Latest Kernel XanMod EDGE Install.."
-        apt install linux-xanmod-edge
-                ;;
-        3) # XanMod LTS
-        echo "" $$ echo "XanMod LTS Install.."
-        apt install linux-xanmod-lts       
-                ;;
+read -rp "KERNINSTAL [1-3]: " -e -i 2 KERNINSTAL
+done
+case $KERNINSTAL in
+1) # Stable XanMod Kernel Release
+echo "" $$ echo "Stable XanMod Kernel Install.."
+apt install linux-xanmod
+;;
+2) # Latest Kernel XanMod EDGE
+echo "" $$ echo "Latest Kernel XanMod EDGE Install.."
+apt install linux-xanmod-edge
+;;
+3) # XanMod LTS
+echo "" $$ echo "XanMod LTS Install.."
+apt install linux-xanmod-lts       
+;;
+
 echo "" && echo " Kernel has installed ..."
 echo "" && echo " updating system ..."
 apt install -y intel-microcode iucode-tool
