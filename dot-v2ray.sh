@@ -5,6 +5,27 @@ RED='\033[0;31m'        # Red
 BLUE='\033[1;34m'       # LIGHTBLUE
 GREEN='\033[0;32m'      # Green
 NC='\033[0m'            # No Color
+red(){
+    echo -e "\033[31m\033[01m$1\033[0m"
+}
+green(){
+    echo -e "\033[32m\033[01m$1\033[0m"
+}
+yellow(){
+    echo -e "\033[33m\033[01m$1\033[0m"
+}
+blue(){
+    echo -e "\033[34m\033[01m$1\033[0m"
+}
+bold(){
+    echo -e "\033[1m\033[01m$1\033[0m"
+}
+
+Green_font_prefix="\033[32m" 
+Red_font_prefix="\033[31m" 
+Green_background_prefix="\033[42;37m" 
+Red_background_prefix="\033[41;37m" 
+Font_color_suffix="\033[0m"
 
 function isRoot() {
         if [ "$EUID" -ne 0 ]; then
@@ -19,7 +40,7 @@ fi
 
 clear
 
-echo " Extreme DOT V2ray Panel Setup V1.3 " 
+echo " Extreme DOT V2ray Panel Setup V1.4 " 
 echo "----------------------------------------"
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
 echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
@@ -31,7 +52,8 @@ options=(
 "D: Install English V2Ray Panel [proxykingdev] "
 "E: BackUP current Server X-UI files"
 "F: Restore X-UI files from backup folder"
-"G: Reboot the Linux"
+"G: Install WireGuard [Kernel > 5.6]"
+"Reboot the Linux"
 "Check for Updates"
 "CLEAR"
 "Quit"
@@ -135,6 +157,23 @@ cd /tmp/v2Server
 wget --no-check-certificate -O install https://raw.githubusercontent.com/proxykingdev/x-ui/master/install
 sleep 1
 chmod +x install
+
+# Enable IPV6 ?
+echo ""
+echo -e "${GREEN}Do you want to enable IPv6? Avoid Google reCAPTCHA human verification ${NC}"
+until [[ $IPV6ABLE =~ (y|n) ]]; do
+read -rp "Enable IPV6 Support? ? [y/n]: " -e -i y IPV6ABLE
+done
+if [[ $IPV6ABLE == "y" ]]; then
+echo "Enabling IPV6 Support"
+if [[ $(sysctl -a | grep 'disable_ipv6.*=.*1') || $(cat /etc/sysctl.{conf,d/*} | grep 'disable_ipv6.*=.*1') ]]; then
+        sed -i '/disable_ipv6/d' /etc/sysctl.{conf,d/*}
+        echo 'net.ipv6.conf.all.disable_ipv6 = 0' >/etc/sysctl.d/ipv6.conf
+        sysctl -w net.ipv6.conf.all.disable_ipv6=0
+fi
+sleep 2
+fi
+# Run V2RAY Script
 /tmp/v2Server/./install
 ;;
 
@@ -192,13 +231,76 @@ cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 fi
 ;;
 
+"G: Install WireGuard [Kernel > 5.6]")
+configWireGuardConfigFilePath="/etc/wireguard/wgcf.conf"
+    
+	if [[ -f "${configWireGuardConfigFilePath}" ]]; then
+        green " ========================================================"
+        green "  Wireguard has been installed allready. "
+		green "  if you need to reinstall, "
+		green "  you can choose to uninstall Wireguard and reinstall it!"
+        green " ========================================================"
+        exit
+    fi
+
+
+    green " =================================================="
+    green " install WireGuard "
+    echo
+    red " Before installation, it is recommended to upgrade kernel to 5.6 or above."
+    red " If it is a new and clean system that has not changed the kernel"
+	red " you can continue to install WireGuard directly without exiting to install other kernels"
+    red " If you have installed other kernels (such as the BBR Plus kernel)"
+	red " it is recommended to install a kernel higher than 5.6 first"
+	red " running Wireguard on kernel lower than 5.6 causes WireGuard cannot be started"
+    red " If WireGuard fails to start, it is recommended to redo the new system"
+	red " upgrade the system to the 5.10 kernel, and then install WireGuard."
+	red " Or do not replace other kernels after redoing the new system, install WireGuard directly"
+    green " =================================================="
+    echo
+	green "Do you want to continue? Please confirm that the linux kernel version has more than 5.6 "
+
+
+    
+	read -p "Your Linux Kernel is Higher than 5.6?, Yes? [Y/n]::" isContinueInput
+	isContinueInput=${isContinueInput:-Y}
+
+	if [[ ${isContinueInput} == [Yy] ]]; then
+		echo
+        green " =================================================="
+        green " Start installing WireGuard "
+        green " =================================================="
+	else 
+        green " It is recommended to use this script to install the kernel above linux kernel 5.6! "
+		exit
+	fi
+
+    echo
+    echo
+    
+apt --fix-broken install -y
+apt-get update
+apt install -y openresolv
+apt install -y resolvconf
+apt install -y net-tools iproute2 dnsutils
+apt install -y wireguard-tools 
+apt install -y wireguard
+apt install -y wireguard-tools 
+systemctl enable systemd-resolved.service
+systemctl start systemd-resolved.service
+green " ================================================== "
+green "  Wireguard installed successfully!"
+green " ================================================== "
+;;
+
+
 "Check for Updates")
 cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
 mv /tmp/dot-v2ray.sh /bin/DotV2ray && chmod +x /bin/DotV2ray
 bash /bin/DotV2ray ; exit 0
 ;;
 # REboot
-"G: Reboot the Linux")
+"Reboot the Linux")
 reboot
 ;;
 
