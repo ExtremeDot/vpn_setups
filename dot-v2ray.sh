@@ -40,7 +40,7 @@ if ! isRoot; then
 fi
 
 clear
-yellow " Extreme DOT V2ray Panel Setup V1.11 " 
+yellow " Extreme DOT V2ray Panel Setup V1.12 " 
 yellow "==========================================="
 PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
 echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
