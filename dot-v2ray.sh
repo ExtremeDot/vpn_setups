@@ -174,7 +174,7 @@ if [[ $(sysctl -a | grep 'disable_ipv6.*=.*1') || $(cat /etc/sysctl.{conf,d/*} |
         echo 'net.ipv6.conf.all.disable_ipv6 = 0' >/etc/sysctl.d/ipv6.conf
         sysctl -w net.ipv6.conf.all.disable_ipv6=0
 fi
-sleep 2
+sleep 1
 fi
 # Run V2RAY Script
 /tmp/v2Server/./install
@@ -220,7 +220,7 @@ echo
 green "Firewall Opened Port for X-UI admin panel on $V2Ray_PORT port."
 echo
 ufw allow $V2Ray_PORT
-sleep
+sleep 1
 green "Firewall Opened Ports from $V2Ray_STARTPORT to $V2Ray_ENDPORT for Users access."
 ufw allow $V2Ray_STARTPORT:$V2Ray_ENDPORT/tcp
 sleep 1
