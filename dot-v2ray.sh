@@ -41,7 +41,7 @@ fi
 
 clear
 
-yellow " Extreme DOT V2ray Panel Setup V1.6 " 
+yellow " Extreme DOT V2ray Panel Setup V1.7 " 
 yellow "----------------------------------------"
 green ""
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
