@@ -41,7 +41,7 @@ fi
 
 clear
 
-yellow " Extreme DOT V2ray Panel Setup V1.5 " 
+yellow " Extreme DOT V2ray Panel Setup V1.6 " 
 yellow "----------------------------------------"
 green ""
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
@@ -52,9 +52,10 @@ options=(
 "B: Install XanMod Kernel , bbr included"
 "C: Install ACME Certificate"
 "D: Install English V2Ray Panel [proxykingdev] "
-"E: BackUP current Server X-UI files"
-"F: Restore X-UI files from backup folder"
-"G: Install WireGuard [Kernel > 5.6]"
+"F: Install and Enable Firewall and Set Ports.. "
+"G: BackUP current Server X-UI files"
+"H: Restore X-UI files from backup folder"
+"I: Install WireGuard [Kernel > 5.6]"
 "Reboot the Linux"
 "Check for Updates"
 "CLEAR"
@@ -179,7 +180,63 @@ fi
 /tmp/v2Server/./install
 ;;
 
-"E: BackUP current Server X-UI files")
+"E: Install and Enable Firewall and Set Ports.. ")
+green " ========================================================"
+green "  Installing Firewall "
+green " ========================================================"
+echo
+
+clear
+if [ $(dpkg-query -W -f='${Status}' ufw 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+green " Installing Firewall"
+apt install -y ufw;
+clear
+green " Firewall is installed " ;
+else
+green " Firewall has installed allready.." ;
+fi
+
+yellow " Please enter the Port number for ADMIN v2ray Panel"
+echo
+read -e -i "$V2Ray_PORT" -p "please Enter X-UI Panel Port: " input
+V2Ray_PORT="${input:-$V2Ray_PORT}"
+echo
+yellow " Please enter the STARTING Port number for Users over v2ray Panel"
+echo
+V2Ray_STARTPORT=500
+read -e -i "$V2Ray_STARTPORT" -p "Please Enter STARTING Port for users: " input
+V2Ray_STARTPORT="${input:-$V2Ray_STARTPORT}"
+echo 
+yellow " Please enter the ENDING Port number for Users over v2ray Panel"
+V2Ray_ENDPORT=600
+read -e -i "$V2Ray_ENDPORT" -p "Please Enter ENDING Port for users: " input
+V2Ray_ENDPORT="${input:-$V2Ray_ENDPORT}"
+echo
+green "Open ports for ssh, http and https access."
+ufw allow http
+ufw allow https
+hfw allow ssh
+echo
+green "Firewall Opened Port for X-UI admin panel on $V2Ray_PORT port."
+echo
+ufw allow $V2Ray_PORT
+sleep
+green "Firewall Opened Ports from $V2Ray_STARTPORT to $V2Ray_ENDPORT for Users access."
+ufw allow V2Ray_STARTPORT:V2Ray_ENDPORT/tcp
+sleep
+ufw allow V2Ray_STARTPORT:V2Ray_ENDPORT/udp
+sleep
+green "Enabling Firewall"
+ufw enable
+echo
+green " you can disable or enable firewall using commands:"
+blue " ufw enable"
+red " ufw disable"
+;;
+
+
+"F: BackUP current Server X-UI files")
 mkdir -p /dot_migrate_xui/backup/
 clear
 echo ""
@@ -206,7 +263,8 @@ echo -e "/dot_migrate_xui/config.json ${NC}"
 echo " finsih"
 ;;
 
-"F: Restore X-UI files from backup folder")
+
+"G: Restore X-UI files from backup folder")
 mkdir -p /dot_migrate_xui/backup/
 echo -e "${YELLOW} Backup files are found! ${NC}"
 echo ""
@@ -233,7 +291,7 @@ cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 fi
 ;;
 
-"G: Install WireGuard [Kernel > 5.6]")
+"H: Install WireGuard [Kernel > 5.6]")
 configWireGuardConfigFilePath="/etc/wireguard/wgcf.conf"
     
 	if [[ -f "${configWireGuardConfigFilePath}" ]]; then
@@ -269,12 +327,12 @@ configWireGuardConfigFilePath="/etc/wireguard/wgcf.conf"
 
 	if [[ ${isContinueInput} == [Yy] ]]; then
 		echo
-        green " =================================================="
-        green " Start installing WireGuard "
-        green " =================================================="
+        	green " =================================================="
+        	green " Start installing WireGuard "
+        	green " =================================================="
 	else 
-        green " It is recommended to use this script to install the kernel above linux kernel 5.6! "
-		exit
+        	green " It is recommended to use this script to install the kernel above linux kernel 5.6! "
+	exit
 	fi
 
     echo
