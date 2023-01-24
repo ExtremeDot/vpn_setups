@@ -41,7 +41,7 @@ fi
 
 clear
 
-yellow " Extreme DOT V2ray Panel Setup V1.7 " 
+yellow " Extreme DOT V2ray Panel Setup V1.8 " 
 yellow "----------------------------------------"
 green ""
 PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
@@ -55,7 +55,7 @@ options=(
 "E: Install and Enable Firewall and Set Ports.. "
 "F: BackUP current Server X-UI files"
 "G: Restore X-UI files from backup folder"
-"H: Install WireGuard [Kernel > 5.6]"
+"H: Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA "
 "Reboot the Linux"
 "Check for Updates"
 "CLEAR"
@@ -291,7 +291,7 @@ cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 fi
 ;;
 
-"H: Install WireGuard [Kernel > 5.6]")
+"H: Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA ")
 configWireGuardConfigFilePath="/etc/wireguard/wgcf.conf"
     
 	if [[ -f "${configWireGuardConfigFilePath}" ]]; then
