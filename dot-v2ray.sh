@@ -60,7 +60,7 @@ options=(
 "CLEAR"
 "Quit"
 )
-
+echo -e "${GREEN}"
 select opt in "${options[@]}"
 do
 case $opt in
@@ -70,6 +70,7 @@ echo "" ; echo "Updating System"
 apt-get update
 apt-get -y upgrade
 echo "" ; echo "Please reboot the system."
+echo -e "${GREEN}"
 ;;
 
 "B: Install XanMod Kernel , bbr included")
@@ -104,6 +105,7 @@ apt install linux-xanmod-edge
 3) # XanMod LTS
 echo "" $$ echo "XanMod LTS Install.."
 apt install linux-xanmod-lts
+echo -e "${GREEN}"
 ;;
 esac
 
@@ -114,20 +116,19 @@ sleep 1
 apt update
 apt -y upgrade
 echo "" ; echo "Please reboot the system."
-
+echo -e "${GREEN}"
 ;;
 
 "C: Install ACME Certificate")
-echo ""
+echo
 EMAILADD=""
 read -e -i "$EMAILADD" -p "Enter Email Address: " input
 EMAILADD="${input:-$EMAILADD}"
-
-echo ""
+echo
 DOMAINNM=""
 read -e -i "$DOMAINNM" -p "Enter Domain name: " input
 DOMAINNM="${input:-$DOMAINNM}"
-echo ""
+echo
 apt update && apt upgrade -y
 sleep 1
 apt install curl socat -y
@@ -147,14 +148,15 @@ green "Certfiles are copied to :"
 echo
 blue "/root/cert.crt"
 blue "/root/private.key"
+echo -e "${GREEN}"
 ;;
 
 "D: Install English V2Ray Panel [proxykingdev] ")
 clear
-echo""
+echo
 yellow "Installing proxykingdev X-UI Panel"
-echo " GITUHB: https://github.com/proxykingdev/x-ui "
-echo ""
+echo "GITUHB: https://github.com/proxykingdev/x-ui "
+echo
 mkdir -p /tmp/v2Server
 cd /tmp/v2Server
 wget --no-check-certificate -O install https://raw.githubusercontent.com/proxykingdev/x-ui/master/install
@@ -178,6 +180,7 @@ sleep 1
 fi
 # Run V2RAY Script
 /tmp/v2Server/./install
+echo -e "${GREEN}"
 ;;
 
 "E: Install and Enable Firewall and Set Ports.. ")
@@ -232,6 +235,7 @@ echo
 green " you can disable or enable firewall using commands:"
 blue " ufw enable"
 red " ufw disable"
+echo -e "${GREEN}"
 ;;
 
 
@@ -261,6 +265,7 @@ echo
 green "/dot_migrate_xui/x-ui.db"
 green "/dot_migrate_xui/config.json"
 green " finsih"
+echo -e "${GREEN}"
 ;;
 
 
@@ -289,6 +294,7 @@ echo "Restoring config.json and x-ui.db into X-UI panel"
 cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 fi
+echo -e "${GREEN}"
 ;;
 
 "H: Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA ")
@@ -560,7 +566,7 @@ yellow " If you have purchased WARP+ subscription, you can fill in the license k
     else
         preferIPV4
     fi
-
+echo -e "${GREEN}"
 ;;
 
 
@@ -568,6 +574,7 @@ yellow " If you have purchased WARP+ subscription, you can fill in the license k
 cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
 mv /tmp/dot-v2ray.sh /bin/DotV2ray && chmod +x /bin/DotV2ray
 bash /bin/DotV2ray ; exit 0
+echo -e "${GREEN}"
 ;;
 # REboot
 "Reboot the Linux")
@@ -577,17 +584,20 @@ reboot
 
 # Quit
 "Quit")
+	echo -e "${NC}"
 	break
 ;;
 
 # CLEAR SCREEN
 "CLEAR")
 	clear
+	echo -e "${GREEN}"
 ;;
 
 
 # WRONG INPUT
 *) echo "invalid option $REPLY"
+echo -e "${GREEN}"
 ;;
 esac
 
