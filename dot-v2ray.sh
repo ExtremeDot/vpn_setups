@@ -40,7 +40,7 @@ if ! isRoot; then
 fi
 
 clear
-yellow " Extreme DOT V2ray Panel Setup V1.10 " 
+yellow " Extreme DOT V2ray Panel Setup V1.11 " 
 yellow "==========================================="
 PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
 echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
@@ -215,16 +215,16 @@ echo
 green "Open ports for ssh, http and https access."
 ufw allow http
 ufw allow https
-hfw allow ssh
+ufw allow ssh
 echo
 green "Firewall Opened Port for X-UI admin panel on $V2Ray_PORT port."
 echo
 ufw allow $V2Ray_PORT
 sleep
 green "Firewall Opened Ports from $V2Ray_STARTPORT to $V2Ray_ENDPORT for Users access."
-ufw allow V2Ray_STARTPORT:V2Ray_ENDPORT/tcp
-sleep
-ufw allow V2Ray_STARTPORT:V2Ray_ENDPORT/udp
+ufw allow $V2Ray_STARTPORT:$V2Ray_ENDPORT/tcp
+sleep 1
+ufw allow $V2Ray_STARTPORT:$V2Ray_ENDPORT/udp
 sleep
 green "Enabling Firewall"
 ufw enable
