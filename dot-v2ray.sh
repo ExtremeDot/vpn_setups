@@ -40,13 +40,12 @@ if ! isRoot; then
 fi
 
 clear
+yellow " Extreme DOT V2ray Panel Setup V1.10 " 
+yellow "==========================================="
+PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
+echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
+echo -e "${GREEN}"
 
-yellow " Extreme DOT V2ray Panel Setup V1.8 " 
-yellow "----------------------------------------"
-green ""
-PS3=" $(echo $'\n'-----------------------------$'\n' "   Enter Option: " ) "
-echo -e "${GREEN}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`${NC}"
-green ""
 options=(
 "A: Update the Linux Machine to Latest"
 "B: Install XanMod Kernel , bbr included"
@@ -141,18 +140,19 @@ sleep 1
 sleep 1
 ~/.acme.sh/acme.sh --issue -d $DOMAINNM --standalone
 sleep 1
+clear
 ~/.acme.sh/acme.sh --installcert -d $DOMAINNM --key-file /root/private.key --fullchain-file /root/cert.crt
-echo ""
-echo "Certfiles are copied to :"
-echo ""
-echo "/root/cert.crt"
-echo "/root/private.key"
+echo
+green "Certfiles are copied to :"
+echo
+blue "/root/cert.crt"
+blue "/root/private.key"
 ;;
 
 "D: Install English V2Ray Panel [proxykingdev] ")
 clear
 echo""
-echo "Installing proxykingdev X-UI Panel"
+yellow "Installing proxykingdev X-UI Panel"
 echo " GITUHB: https://github.com/proxykingdev/x-ui "
 echo ""
 mkdir -p /tmp/v2Server
@@ -163,7 +163,7 @@ chmod +x install
 
 # Enable IPV6 ?
 echo ""
-echo -e "${GREEN}Do you want to enable IPv6? Avoid Google reCAPTCHA human verification ${NC}"
+green "Do you want to enable IPv6? Avoid Google reCAPTCHA human verification"
 until [[ $IPV6ABLE =~ (y|n) ]]; do
 read -rp "Enable IPV6 Support? ? [y/n]: " -e -i y IPV6ABLE
 done
@@ -185,7 +185,6 @@ green " ========================================================"
 green "  Installing Firewall "
 green " ========================================================"
 echo
-
 clear
 if [ $(dpkg-query -W -f='${Status}' ufw 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
@@ -196,9 +195,9 @@ green " Firewall is installed " ;
 else
 green " Firewall has installed allready.." ;
 fi
-
 yellow " Please enter the Port number for ADMIN v2ray Panel"
 echo
+V2Ray_PORT=12345
 read -e -i "$V2Ray_PORT" -p "please Enter X-UI Panel Port: " input
 V2Ray_PORT="${input:-$V2Ray_PORT}"
 echo
@@ -239,28 +238,29 @@ red " ufw disable"
 "F: BackUP current Server X-UI files")
 mkdir -p /dot_migrate_xui/backup/
 clear
-echo ""
+echo
 if test -f "/dot_migrate_xui/x-ui.db"; then
-echo -e "${YELLOW} Backup files are found! ${NC}"
-echo ""
-echo "Moving latest backup files into /dot_migrate_xui/backup folder"
+blue "Backup files are found!"
+echo
+green "Moving latest backup files into /dot_migrate_xui/backup folder"
 dateformate=$(date '+%Y-%m-%d_%H:%M')
 mv "/dot_migrate_xui/config.json" "/dot_migrate_xui/backup/$dateformate-config.json"
 mv "/dot_migrate_xui/x-ui.db" "/dot_migrate_xui/backup/$dateformate-x-ui.db"
-echo " files are moved into /dot_migrate_xui/backup/"
+green " files are moved into /dot_migrate_xui/backup/"
 echo "$dateformate-config.json AND $dateformate-x-ui.db"
-echo ""
+echo
 fi
 sleep 1
 cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
-echo "" ;  echo -e "${GREEN}Files are backed up in ${YELLOW}/dot_migrate_xui/ ${GREEN}folder ${NC}"
-echo " Now you can download files using ${YELLOW}WinSCP${NC} program"
-echo " Connect to this server and download 2 files from /dot_migrate_xui folder "
-echo ""
-echo -e "${GREEN} /dot_migrate_xui/x-ui.db"
-echo -e "/dot_migrate_xui/config.json ${NC}"
-echo " finsih"
+echo
+yellow "Files are backed up in /dot_migrate_xui/ folder "
+green " Now you can download files using " yellow "WinSCP program"
+green " Connect to this server and download 2 files from /dot_migrate_xui folder "
+echo
+green "/dot_migrate_xui/x-ui.db"
+green "/dot_migrate_xui/config.json"
+green " finsih"
 ;;
 
 
