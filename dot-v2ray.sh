@@ -54,7 +54,7 @@ options=(
 "E: Install and Enable Firewall and Set Ports.. "
 "F: BackUP current Server X-UI files"
 "G: Restore X-UI files from backup folder"
-"H: Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA "
+"H: [TEST] Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA "
 "Reboot the Linux"
 "Check for Updates"
 "CLEAR"
@@ -294,7 +294,7 @@ fi
 echo -e "${GREEN}"
 ;;
 
-"H: Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA ")
+"H: [TEST] Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA ")
 configWireGuardConfigFilePath="/etc/wireguard/wgcf.conf"
     
 	if [[ -f "${configWireGuardConfigFilePath}" ]]; then
