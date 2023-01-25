@@ -579,7 +579,7 @@ green " check if bbr is running"
 sysctl -n net.ipv4.tcp_congestion_control
 sleep 1
 lsmod | grep bbr
-;
+;;
 
 "Check for Updates")
 cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
@@ -587,6 +587,7 @@ mv /tmp/dot-v2ray.sh /bin/DotV2ray && chmod +x /bin/DotV2ray
 bash /bin/DotV2ray ; exit 0
 echo -e "${GREEN}"
 ;;
+
 # REboot
 "Reboot the Linux")
 reboot
