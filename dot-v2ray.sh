@@ -40,7 +40,7 @@ if ! isRoot; then
 fi
 
 clear
-yellow " Extreme DOT V2ray Panel Setup V1.16 " 
+yellow " Extreme DOT V2ray Panel Setup V1.17 " 
 yellow "==========================================="
 PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
 echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
@@ -56,6 +56,7 @@ options=(
 "G: Restore X-UI files from backup folder"
 "H: [TEST] Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA "
 "BBR Status"
+"SYS Status"
 "Reboot the Linux"
 "Check for Updates"
 "CLEAR"
@@ -164,12 +165,22 @@ wget --no-check-certificate -O install https://raw.githubusercontent.com/proxyki
 sleep 1
 chmod +x install
 echo
-green "Enabling BBR"
+
+green "Enabling BBR?"
+until [[ $BBREANBLE =~ (y|n) ]]; do
+read -rp "Enable BBR? ? [y/n]: " -e -i n BBREANBLE
+done
+if [[ $BBREANBLE == "y" ]]; then
+echo "Enabling BBR "
 yellow "Enable BBR acceleration"
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sleep 1
 sysctl -p
+else
+sleep 1
+echo "Skipping BBR Enabling"
+fi
 
 # Enable IPV6 ?
 echo
@@ -572,6 +583,12 @@ yellow " If you have purchased WARP+ subscription, you can fill in the license k
         preferIPV4
     fi
 echo -e "${GREEN}"
+;;
+
+"SYS Status")
+echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
+echo -e "${YELLOW}Current IPV4= `ifconfig eth0 | grep inet | grep netmask | grep -o -P '(?<=inet ).*(?=  netmask)'`"
+echo -e "${YELLOW}Current IPV6= [`ifconfig eth0 | grep inet6 | grep global | grep -o -P '(?<=inet6 ).*(?=  prefixlen)'`]"
 ;;
 
 "BBR Status")
