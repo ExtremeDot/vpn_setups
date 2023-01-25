@@ -259,12 +259,13 @@ cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
 echo
 yellow "Files are backed up in /dot_migrate_xui/ folder "
-green " Now you can download files using " yellow "WinSCP program"
+green " Now you can download files using "
+yellow " WinSCP program"
 green " Connect to this server and download 2 files from /dot_migrate_xui folder "
 echo
 green "/dot_migrate_xui/x-ui.db"
 green "/dot_migrate_xui/config.json"
-green " finsih"
+green " finish"
 echo -e "${GREEN}"
 ;;
 
