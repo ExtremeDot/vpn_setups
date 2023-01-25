@@ -274,9 +274,11 @@ echo -e "${GREEN}"
 mkdir -p /dot_migrate_xui/backup/
 if test -f "/dot_migrate_xui/x-ui.db"; then
 echo -e "${YELLOW} Backup files are found! ${NC}"
-echo ""
+echo
 echo -e "Upload files into server using ${YELLOW}WinSCP${NC} program ${NC}"
 echo -e "Upload ${YELLOW}config.json${NC} and ${YELLOW}x-ui.db${NC} into ${GREEN}/dot_migrate_xui/ folder${NC}"
+echo
+UPLOAD_BACKUP1=""
 until [[ $UPLOAD_BACKUP1 =~ (y|n) ]]; do
 read -rp "Do you uploaded files into server ? [y/n]: " -e -i y UPLOAD_BACKUP1
 done
@@ -284,6 +286,10 @@ if [[ $UPLOAD_BACKUP1 == "y" ]]; then
 echo "Restoring config.json and x-ui.db into X-UI panel"
 cp /usr/local/x-ui/bin/config.json /dot_migrate_xui/config.json
 cp /etc/x-ui/x-ui.db /dot_migrate_xui/x-ui.db
+fi
+else 
+red "No any backup founds in /dot_migrate_xui folder"
+echo -e "Please Upload files into server using ${YELLOW}WinSCP${NC} program ${NC}"
 fi
 echo -e "${GREEN}"
 ;;
