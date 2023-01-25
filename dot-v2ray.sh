@@ -40,7 +40,7 @@ if ! isRoot; then
 fi
 
 clear
-yellow " Extreme DOT V2ray Panel Setup V1.13 " 
+yellow " Extreme DOT V2ray Panel Setup V1.14 " 
 yellow "==========================================="
 PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
 echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
@@ -272,18 +272,8 @@ echo -e "${GREEN}"
 
 "G: Restore X-UI files from backup folder")
 mkdir -p /dot_migrate_xui/backup/
+if test -f "/dot_migrate_xui/x-ui.db"; then
 echo -e "${YELLOW} Backup files are found! ${NC}"
-echo ""
-echo -e "${GREEN}Do you want to make backup of them and ${RED}DELETE ${GREEN} ?${NC}"
-until [[ $CLEAN_BACKUP1 =~ (y|n) ]]; do
-read -rp "Backup and then Delete ? [y/n]: " -e -i y CLEAN_BACKUP1
-done
-if [[ $CLEAN_BACKUP1 == "y" ]]; then
-echo "Moving files into backup and cleaning config.json and x-ui.db"
-dateformate=$(date '+%Y-%m-%d_%H:%M')
-mv "/dot_migrate_xui/config.json" "/dot_migrate_xui/backup/$dateformate-config.json"
-mv "/dot_migrate_xui/x-ui.db" "/dot_migrate_xui/backup/$dateformate-x-ui.db"
-fi
 echo ""
 echo -e "Upload files into server using ${YELLOW}WinSCP${NC} program ${NC}"
 echo -e "Upload ${YELLOW}config.json${NC} and ${YELLOW}x-ui.db${NC} into ${GREEN}/dot_migrate_xui/ folder${NC}"
