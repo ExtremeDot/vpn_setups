@@ -40,7 +40,7 @@ if ! isRoot; then
 fi
 
 clear
-yellow " Extreme DOT V2ray Panel Setup V1.15 " 
+yellow " Extreme DOT V2ray Panel Setup V1.16 " 
 yellow "==========================================="
 PS3=" $(echo -e $'\n'-----------------------------$'\n' "   Enter Option:" ) "
 echo -e "${YELLOW}Current Installed Kernel= `cat /proc/version | sed 's/.(.*//'`"
@@ -55,6 +55,7 @@ options=(
 "F: BackUP current Server X-UI files"
 "G: Restore X-UI files from backup folder"
 "H: [TEST] Install WireGuard [Kernel > 5.6] + Cloudflare WARP + avoid Google reCAPTCHA "
+"BBR Status"
 "Reboot the Linux"
 "Check for Updates"
 "CLEAR"
@@ -162,9 +163,16 @@ cd /tmp/v2Server
 wget --no-check-certificate -O install https://raw.githubusercontent.com/proxykingdev/x-ui/master/install
 sleep 1
 chmod +x install
+echo
+green "Enabling BBR"
+yellow "Enable BBR acceleration"
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sleep 1
+sysctl -p
 
 # Enable IPV6 ?
-echo ""
+echo
 green "Do you want to enable IPv6? Avoid Google reCAPTCHA human verification"
 until [[ $IPV6ABLE =~ (y|n) ]]; do
 read -rp "Enable IPV6 Support? ? [y/n]: " -e -i y IPV6ABLE
@@ -566,6 +574,12 @@ yellow " If you have purchased WARP+ subscription, you can fill in the license k
 echo -e "${GREEN}"
 ;;
 
+"BBR Status")
+green " check if bbr is running"
+sysctl -n net.ipv4.tcp_congestion_control
+sleep 1
+lsmod | grep bbr
+;
 
 "Check for Updates")
 cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
