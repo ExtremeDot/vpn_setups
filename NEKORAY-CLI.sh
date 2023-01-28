@@ -1,6 +1,7 @@
 #!/bin/bash
-
+clear
 echo "EXTREME DOT - NEKORAY CLI V1.0"
+echo "Enter [NEKORAY-CLI help] to see help and usage"
 echo
 if [ "$EUID" -ne 0 ]; then
   echo "Please run as root"
