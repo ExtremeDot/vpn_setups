@@ -10,6 +10,10 @@ if [ "$EUID" -ne 0 ]; then
 fi
 download() {
 # DOWNLOADING NEKORAY FROM GIT-HUB
+echo
+echo " removing last files"
+rm -rf /ExtremeDOT/nekoray
+sleep 1
 mkdir -p /ExtremeDOT/nekoray
 cd /ExtremeDOT
 wget https://github.com/MatsuriDayo/nekoray/releases/download/2.11/nekoray-2.11-2023-01-13-linux64.zip
