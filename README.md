@@ -1,4 +1,4 @@
-#VPN SETUPS
+# VPN SETUPS
 
 ### DOT V2RAY
 cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/dot-v2ray.sh
