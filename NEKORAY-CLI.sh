@@ -1,10 +1,11 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+
+echo "EXTREME DOT - NEKORAY CLI V1.0"
+echo
 if [ "$EUID" -ne 0 ]; then
   echo "Please run as root"
   exit
 fi
-
 download() {
 # DOWNLOADING NEKORAY FROM GIT-HUB
 mkdir -p /ExtremeDOT/nekoray
@@ -129,6 +130,14 @@ installing_core() {
 download
 singbox_json
 touch /ExtremeDOT/nekoray/config.json
+touch /ExtremeDOT/nekoray/run1.sh
+touch /ExtremeDOT/nekoray/run2.sh
+
+echo "#!/bin/bash" > /ExtremeDOT/nekoray/run1.sh
+echo "\"/ExtremeDOT/nekoray/nekoray_core\" run -config \"/ExtremeDOT/nekoray/config.json\" " >> /ExtremeDOT/nekoray/run1.sh
+
+echo "#!/bin/bash" > /ExtremeDOT/nekoray/run2.sh
+echo "\"/ExtremeDOT/nekoray/nekobox_core\" run -c \"/ExtremeDOT/nekoray/sing-box-vpn.json\" --protect-fwmark 514 " /ExtremeDOT/nekoray/run2.sh
 }
 
 
@@ -143,18 +152,20 @@ pre_start_linux() {
 }
 
 start1() {
-/ExtremeDOT/nekoray/nekoray_core run -config /ExtremeDOT/nekoray/config.json
+/ExtremeDOT/nekoray/run1.sh </dev/null &>/dev/null &
 }
 
 start2() {
-"/ExtremeDOT/nekoray/nekobox_core" run -c "/ExtremeDOT/nekoray/sing-box-vpn.json" --protect-fwmark 514
+/ExtremeDOT/nekoray/run2.sh </dev/null &>/dev/null &
 }
 
-if [ "$1" = "run" ]; then
+if [ "$1" = "start" ]; then
     echo
     echo "Running Nekoray Client"
     pre_start_linux
+    sleep 2
     start1
+    sleep 3
     start2
   
   else if [ "$1" = "edit" ]; then
@@ -180,25 +191,35 @@ if [ "$1" = "run" ]; then
         else if [ "$1" = "test" ]; then
           echo "TESTING IP Address"
           echo
+          echo "------------------"
           echo "nekoray-tun 127.0.0.1:2080"
           echo
           echo "Testing Localhost:2080 port"
           curl --socks5 socks5://localhost:2080 https://myip.wtf/json -m 20
           echo
+          echo "------------------"
           echo "Testing nekoray-tun interface"
           curl --interface nekoray-tun myip.wtf/json -m 20
         else if [ "$1" = "help" ]; then
-          echo "Extreme Dot - NEKORAY CLI "
+          echo "Extreme Dot - NEKORAY CLI V1.0"
           echo
           echo "NEKORAY-CLI install"
-          echo "NEKORAY-CLI run"
+          echo "NEKORAY-CLI start"
           echo "NEKORAY-CLI stop"
           echo "NEKORAY-CLI test"
           echo "NEKORAY-CLI edit"
+          echo "NEKORAY-CLI update"
           echo "NEKORAY-CLI help"
-            else
+            else if [ "$1" = "update" ]; then
             echo
-            echo "Enter [NEKORAY-CLI help] to see help and usage"
-            
+            echo "Updating the script.."
+            cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/NEKORAY-CLI.sh
+            sleep 2
+            mv /tmp/NEKORAY-CLI.sh /bin/NEKORAY-CLI && chmod +x /bin/NEKORAY-CLI ; bin/NEKORAY-CLI ; exit
+              else
+              echo
+              echo "Enter [NEKORAY-CLI help] to see help and usage"
+              echo
+              echo
 fi; fi; fi; fi; fi; fi; fi
 
