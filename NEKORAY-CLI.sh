@@ -211,6 +211,8 @@ if [ "$1" = "start" ]; then
           echo "NEKORAY-CLI edit"
           echo "NEKORAY-CLI update"
           echo "NEKORAY-CLI help"
+          echo
+          echo
             else if [ "$1" = "update" ]; then
             echo
             echo "Updating the script.."
