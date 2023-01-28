@@ -1,5 +1,5 @@
 #!/bin/bash
-NEKOCLI_VER=1.1
+NEKOCLI_VER=1.3
 clear
 echo "EXTREME DOT - NEKORAY CLI V$NEKOCLI_VER"
 echo "Enter [NEKORAY-CLI help] to see help and usage"
@@ -11,7 +11,8 @@ fi
 download() {
 # DOWNLOADING NEKORAY FROM GIT-HUB
 echo
-echo " removing last files"
+echo "Removing Previous files"
+echo
 rm -rf /ExtremeDOT/nekoray
 sleep 1
 mkdir -p /ExtremeDOT/nekoray
@@ -26,6 +27,9 @@ cd /ExtremeDOT/nekoray
 }
 
 singbox_json() {
+echo 
+echo "Writing /ExtremeDOT/nekoray/sing-box-vpn.json file"
+echo
 cat <<EOF > /ExtremeDOT/nekoray/sing-box-vpn.json
 {
     "dns": {
@@ -129,21 +133,26 @@ cat <<EOF > /ExtremeDOT/nekoray/sing-box-vpn.json
 }
 
 EOF
+chmod +x /ExtremeDOT/nekoray/sing-box-vpn.json
 }
 
 
 installing_core() {
+echo
+echo "Downloading files"
 download
 singbox_json
 touch /ExtremeDOT/nekoray/config.json
 touch /ExtremeDOT/nekoray/run1.sh
 touch /ExtremeDOT/nekoray/run2.sh
-
+echo "Start 1"
 echo "#!/bin/bash" > /ExtremeDOT/nekoray/run1.sh
 echo "\"/ExtremeDOT/nekoray/nekoray_core\" run -config \"/ExtremeDOT/nekoray/config.json\" " >> /ExtremeDOT/nekoray/run1.sh
-
+chmod +x /ExtremeDOT/nekoray/run1.sh
+echo "Start 2"
 echo "#!/bin/bash" > /ExtremeDOT/nekoray/run2.sh
 echo "\"/ExtremeDOT/nekoray/nekobox_core\" run -c \"/ExtremeDOT/nekoray/sing-box-vpn.json\" --protect-fwmark 514 " >> /ExtremeDOT/nekoray/run2.sh
+chmod +x /ExtremeDOT/nekoray/run2.sh
 }
 
 
@@ -158,10 +167,12 @@ pre_start_linux() {
 }
 
 start1() {
+echo " RUNNING Start 1"
 /ExtremeDOT/nekoray/run1.sh </dev/null &>/dev/null &
 }
 
 start2() {
+echo " RUNNING Start 2"
 /ExtremeDOT/nekoray/run2.sh </dev/null &>/dev/null &
 }
 
