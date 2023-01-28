@@ -1,5 +1,5 @@
 #!/bin/bash
-NEKOCLI_VER=1.3
+NEKOCLI_VER=1.4
 clear
 echo "EXTREME DOT - NEKORAY CLI V$NEKOCLI_VER"
 echo "Enter [NEKORAY-CLI help] to see help and usage"
@@ -184,17 +184,26 @@ if [ "$1" = "start" ]; then
     start1
     sleep 3
     start2
+    echo
+    echo "to test running connection please run command below"
+    echo "NEKORAY-CLI test"
   
   else if [ "$1" = "edit" ]; then
     echo
     echo "Editing Config.json files"
     nano /ExtremeDOT/nekoray/config.json
+    echo
+    echo "to start Nekoray config please using command below"
+    echo "NEKORAY-CLI start"
 
     else if [ "$1" = "install" ]; then
       echo
       echo "Installing Core.. Nekoray"
       installing_core
-
+      echo
+      echo "Please Update Config file using command"
+      echo "NEKORAY-CLI edit"
+      echo
       else if [ "$1" = "stop" ]; then
         echo
         echo "Stopping Core.. Nekoray"
