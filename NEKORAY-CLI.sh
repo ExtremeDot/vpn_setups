@@ -1,6 +1,7 @@
 #!/bin/bash
+NEKOCLI_VER=1.1
 clear
-echo "EXTREME DOT - NEKORAY CLI V1.0"
+echo "EXTREME DOT - NEKORAY CLI V$NEKOCLI_VER"
 echo "Enter [NEKORAY-CLI help] to see help and usage"
 echo
 if [ "$EUID" -ne 0 ]; then
@@ -138,7 +139,7 @@ echo "#!/bin/bash" > /ExtremeDOT/nekoray/run1.sh
 echo "\"/ExtremeDOT/nekoray/nekoray_core\" run -config \"/ExtremeDOT/nekoray/config.json\" " >> /ExtremeDOT/nekoray/run1.sh
 
 echo "#!/bin/bash" > /ExtremeDOT/nekoray/run2.sh
-echo "\"/ExtremeDOT/nekoray/nekobox_core\" run -c \"/ExtremeDOT/nekoray/sing-box-vpn.json\" --protect-fwmark 514 " /ExtremeDOT/nekoray/run2.sh
+echo "\"/ExtremeDOT/nekoray/nekobox_core\" run -c \"/ExtremeDOT/nekoray/sing-box-vpn.json\" --protect-fwmark 514 " >> /ExtremeDOT/nekoray/run2.sh
 }
 
 
@@ -202,7 +203,7 @@ if [ "$1" = "start" ]; then
           echo "Testing nekoray-tun interface"
           curl --interface nekoray-tun myip.wtf/json -m 20
         else if [ "$1" = "help" ]; then
-          echo "Extreme Dot - NEKORAY CLI V1.0"
+          echo "Extreme Dot - NEKORAY CLI V$NEKOCLI_VER"
           echo
           echo "NEKORAY-CLI install"
           echo "NEKORAY-CLI start"
