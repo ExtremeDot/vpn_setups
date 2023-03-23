@@ -76,6 +76,21 @@ ufw allow 4430
 
 ***
 
+V2ray panel
+
+![image](https://user-images.githubusercontent.com/120102306/227283440-7fe06b5d-02ca-424b-8194-2124d897120a.png)
+
+
+```sh
+/root/cert.crt
+```
+
+```sh
+/root/private.key
+```
+
+
+
 
 
 
