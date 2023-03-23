@@ -21,8 +21,9 @@ dash.cloudflare.com
 
 ***
 
-* make Certificate
+## make Certificate
 
+### Using ACME
 `
 7) Input Domain and Email Address
 
@@ -33,6 +34,60 @@ dash.cloudflare.com
 `
 
 ![image](https://user-images.githubusercontent.com/120102306/227280472-3a9b4122-98ed-4ce7-9190-9117de209f74.png)
+
+
+### USNING CERTBOT
+
+```sh
+snap install --classic certbot
+```
+
+```sh
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+```sh
+sudo certbot certonly --standalone
+```
+
+![image](https://user-images.githubusercontent.com/120102306/227290437-cda52a29-a30c-4b0e-8366-fb12e63292e8.png)
+
+
+enter your email
+
+![image](https://user-images.githubusercontent.com/120102306/227290836-5b38298c-bd8e-466c-9105-1da2982bd566.png)
+
+
+Select Y
+
+![image](https://user-images.githubusercontent.com/120102306/227291000-073f9d2f-6a0a-4fe1-8b4d-6828a16732ea.png)
+
+
+Select Y
+
+![image](https://user-images.githubusercontent.com/120102306/227291224-7e68cc49-a5ad-48e5-9bd4-fbb76780135c.png)
+
+
+Enter Domain Name
+
+```sh
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/extremedot.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/extremedot.com/privkey.pem
+This certificate expires on 2023-06-21.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```
+
+your cert:     :/etc/letsencrypt/live/extremedot.com/fullchain.pem
+your prive key :/etc/letsencrypt/live/extremedot.com/privkey.pem
+
 
 ***
 
