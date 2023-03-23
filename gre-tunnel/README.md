@@ -90,7 +90,7 @@ ping $vpsB_gre
 * Server B
 
 ```sh
-ping $vpsB_gre
+ping $vpsA_gre
 ```
 ***
 
