@@ -4,6 +4,7 @@ NEKOCLI_VER=1.5
 clear
 echo "EXTREME DOT - NEKORAY CLI V$NEKOCLI_VER"
 echo "Enter [NEKORAY-CLI help] to see help and usage"
+echo "127.0.0.1 2080"
 echo
 if [ "$EUID" -ne 0 ]; then
   echo "Please run as root"
