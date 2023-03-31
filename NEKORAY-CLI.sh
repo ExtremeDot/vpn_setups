@@ -21,7 +21,7 @@ cd /ExtremeDOT
 #wget https://github.com/MatsuriDayo/nekoray/releases/download/2.11/nekoray-2.11-2023-01-13-linux64.zip
 #unzip nekoray-2.11-2023-01-13-linux64.zip
 wget https://github.com/MatsuriDayo/nekoray/releases/download/2.20/nekoray-2.20-2023-03-25-linux64.zip
-unizp nekoray-2.20-2023-03-25-linux64.zip
+unzip nekoray-2.20-2023-03-25-linux64.zip
 rm /ExtremeDOT/*.zip
 cd /ExtremeDOT/nekoray
 
