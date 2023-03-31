@@ -246,7 +246,7 @@ if [ "$1" = "start" ]; then
             echo "Updating the script.."
             cd /tmp && curl -O https://raw.githubusercontent.com/ExtremeDot/vpn_setups/master/NEKORAY-CLI.sh
             sleep 2
-            mv /tmp/NEKORAY-CLI.sh /bin/NEKORAY-CLI && chmod +x /bin/NEKORAY-CLI ; bin/NEKORAY-CLI ; exit
+            mv /tmp/NEKORAY-CLI.sh /bin/NEKORAY-CLI && chmod +x /bin/NEKORAY-CLI ; /bin/NEKORAY-CLI ; exit
               else
               echo
               echo "Enter [NEKORAY-CLI help] to see help and usage"
