@@ -1,5 +1,6 @@
 #!/bin/bash
-NEKOCLI_VER=1.4
+NEKOCLI_VER=1.5
+
 clear
 echo "EXTREME DOT - NEKORAY CLI V$NEKOCLI_VER"
 echo "Enter [NEKORAY-CLI help] to see help and usage"
