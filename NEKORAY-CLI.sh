@@ -19,10 +19,8 @@ rm -rf /ExtremeDOT/nekoray
 sleep 1
 mkdir -p /ExtremeDOT/nekoray
 cd /ExtremeDOT
-#wget https://github.com/MatsuriDayo/nekoray/releases/download/2.11/nekoray-2.11-2023-01-13-linux64.zip
-#unzip nekoray-2.11-2023-01-13-linux64.zip
-wget https://github.com/MatsuriDayo/nekoray/releases/download/2.20/nekoray-2.20-2023-03-25-linux64.zip
-unzip nekoray-2.20-2023-03-25-linux64.zip
+wget https://github.com/MatsuriDayo/nekoray/releases/download/2.22/nekoray-2.22-2023-04-08-linux64.zip
+unzip nekoray-2.22-2023-04-08-linux64.zip
 #rm /ExtremeDOT/*.zip
 cd /ExtremeDOT/nekoray
 
