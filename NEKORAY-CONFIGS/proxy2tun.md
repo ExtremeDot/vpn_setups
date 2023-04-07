@@ -1,9 +1,15 @@
+###
+
+## GET LOCAL PORT 1950
+
+## SHARE IT AS 2080 and tunnel it into nekoray tunnel
+
+
 ```
 NEKORAY-CLI edit
 ```
 
 ```
-  GNU nano 5.4                                                                                                                    /ExtremeDOT/nekoray/config.json *                                                                                                                           
 {
   "log": {
     "access": "",
