@@ -15,10 +15,7 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash men
 
 Select - 1. English (default)
 
-
-
-![image](https://user-images.githubusercontent.com/120102306/230756302-5a93a41d-4352-4c91-b281-5928df57e7b4.png)
-
+![image](https://user-images.githubusercontent.com/120102306/230782527-5d61d74d-a58a-45af-9f61-2985ae01afb8.png)
 
 ***
 
@@ -28,7 +25,7 @@ Select - 1. English (default)
    *  Please choose the priority: 
     *  2. IPv6
  
-
+#### اگه نیاز به توضیحات بیشتر دارید، [قسمت گزینه های پیش رو ، در آموزش روش سوم](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-C.md#%DA%AF%D8%B2%DB%8C%D9%86%D9%87-%D9%87%D8%A7%DB%8C-%D9%BE%DB%8C%D8%B4-%D8%B1%D9%88) رو مطالعه کنید 
 ***
 
   
