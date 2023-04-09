@@ -10,11 +10,11 @@ mv extraMenu.sh /bin/eMenu && chmod +x /bin/eMenu
 eMenu
 ```
 
- - 11) CloudFlare WARP+
+ - 11)CloudFlare WARP+
  
  ![image](https://user-images.githubusercontent.com/120102306/230754704-12018a6c-90be-447a-8dc5-402cab7eb835.png)
 
- - 2) Install Cloudflare Warp+
+ - 2)Install Cloudflare Warp+
   -  Do you want to continue? [Y/n] **y**
   
   -  Cloudflare Deb package address:
@@ -26,23 +26,23 @@ eMenu
 
   - Accept Terms of Service and Privacy Policy? [y/N] **y**
 
- - 16) PROXY
- - 17) Set Proxy port
+ - 16)PROXY
+ - 17)Set Proxy port
   - Enter port for proxy set [1000-50000]:**49999**
 
- - 3) Register and Enable New Account
+ - 3)Register and Enable New Account
   - NOTE: after that you will see the detais of your cloudflare IP
  
  ![image](https://user-images.githubusercontent.com/120102306/230755224-2bef1a4f-14f3-45a4-be63-68330734f9e3.png)
 
 - ENTER 0  Back to Main-Menu , enter **0**
-- 6) Show Busy/Used Ports by System
+- 6)Show Busy/Used Ports by System
  - NOTE: see the port of warp service
 
 ![image](https://user-images.githubusercontent.com/120102306/230755265-c871f5e6-2510-460e-9a86-9fb498655708.png)
 
  
- - 8) Check Public IP by Socks5 Port's Number
+ - 8)Check Public IP by Socks5 Port's Number
   - Enter The V2ray Running Local Port: **49999**
 
 ![image](https://user-images.githubusercontent.com/120102306/230755318-0d52b004-6db4-43b6-bfff-e15341189003.png)
