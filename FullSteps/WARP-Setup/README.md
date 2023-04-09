@@ -1,10 +1,11 @@
+### راه اندازی سرویس وارپ
 
 سه تا روش آموزش گذاشتم
 
 
-روش پیشنهادی B
+- [روش اول - رسمی خود کلاد فلر](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-A.md)
 
-روش اول A خودم منو رو نوشتم بر اساس کلاینت رسمی کلادفلر
+- [روش دوم - پیشنهادی](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-B.md)
 
-روش سوم هم که مثل روش دومه تقریبا بر پایه GO
+- [روش سوم - warp-go](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-C.md)
 
