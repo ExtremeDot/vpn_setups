@@ -20,3 +20,5 @@
 روش چهارم هم برای اجرای warp روی پروکسی هست.
 
 ---
+
+برای آدرس دهی به فایل [routing](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/routing/V2RAY/warp-proxy.md) مراجعه کنید
