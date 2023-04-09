@@ -1,16 +1,16 @@
 
 - ### نصب پنل سرور V2ray
 
-- #### Setup SSL using acme
+- #### گرفتن لایسنسس SSL برای سرور
 
- - goto your cloudflare account, update domain and ip address , **no proxies**
-  - ping domain to be sure it will return your VPS ip.
+ - وارد داشبورد کلادفلر میشیم، آی پی سرور رو به دامین اختصاص میدیم
+  - از دامین یا ساب دامین پینگ میگیریم که مطمین بشیم آی پی سرور رو برمیگردونه
 
 ```
 ping yourdomain.com 
 ```
 
-- #### using my script
+- #### انجام مراحل با اسکریپت خودم
 
 
 ```
