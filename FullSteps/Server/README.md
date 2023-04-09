@@ -2,10 +2,15 @@
 
 ***
 
-### راه اندازی سرور خارج از کشور
+### راه اندازی سرور 
 
-[- روش اول ، نصب سافت اتر و پنل v2ray](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/Server/Euro.md)
+ 
+  - [Soft Ether](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/Server/SoftEther)
+  
+  - [3X-UI V2ray Panel](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/Server/v2ray)
+  
+  - [آموزش های تکمیلی](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/Server/post-install)
+  
+ 
 
 
-***
-### راه اندازی سرور داخل کشور
