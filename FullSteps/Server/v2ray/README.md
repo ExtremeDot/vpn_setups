@@ -1,6 +1,9 @@
 
 - ### نصب پنل سرور V2ray
 
+
+***
+
 - #### گرفتن لایسنسس SSL برای سرور
 
  - وارد داشبورد کلادفلر میشیم، آی پی سرور رو به دامین اختصاص میدیم
@@ -39,7 +42,12 @@ extremeDOT
 /root/private.key
 ```
 
- - #### Installing Panel
+***
+
+
+ - #### نصب کردن پنل 
+
+
 
 ![image](https://user-images.githubusercontent.com/120102306/230754445-f1835693-4f75-4a5a-929f-cbcb93c67e8b.png)
 
@@ -50,6 +58,14 @@ extremeDOT
   - Please set up your password: **password**
   - Please set up the panel port: **54321**
 
+ - #### تنظیمات پیش فرض
+
+```
+Port: 2053
+username and password will be generated randomly if you skip to modify your own security(x-ui "7")
+database path: /etc/x-ui/x-ui.db
+xray config path: /usr/local/x-ui/bin/config.json
+````
 
 Check the panel with **VPSIP:PORT**
 
