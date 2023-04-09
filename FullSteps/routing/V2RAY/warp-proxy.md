@@ -192,3 +192,8 @@ NOTE: Port is **49999**
 
 ![image](https://user-images.githubusercontent.com/120102306/230755626-a773edf7-9953-4615-866c-8cea4cbd0da3.png)
 
+***
+
+
+### نمونه فایل [config
+](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/routing/V2RAY/config-sample.json)
