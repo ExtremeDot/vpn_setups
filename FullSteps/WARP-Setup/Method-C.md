@@ -38,6 +38,39 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash 
  -  3. Use free account (default)
 ```
 
+***
+
+### تست کردن کانکش 
+
+
+خب اینجا باید چک کنیم، سرویسی که راه اندازی کردیم اصلا کار میکنه یا نه؟
+
+ - چک کردن اینترفیس
+
+```
+ifconfig
+```
+
+باید اینترفیس WARP رو داشته باشیم
+
+![image](https://user-images.githubusercontent.com/120102306/230777981-de389030-3c10-4d1c-be58-9fbfbeb6559d.png)
+
+
+- چک کردن ip اینترفیس WARP
+
+```
+curl -4 myip.wtf/json  --interface WARP
+```
+
+![image](https://user-images.githubusercontent.com/120102306/230778089-23f4e2c3-f81b-4abf-b44c-fd5b531e79b8.png)
+
+بعد از اینکه از اتصال مطمین شدیم، میریم برا قسمت بعدی که آدرس دهی هست.
+
+***
+
+
+
+
 
 - در انتها ساخته که شد، باید خروجی کانفیگ رو برای وایرکارد و تنظیمات v2ray استخرا کنیم
 
