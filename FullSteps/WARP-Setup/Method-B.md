@@ -75,10 +75,35 @@ curl -6 myip.wtf/json --interface wgcf
   - ###  حالا اگه بخوایم اینترنت پیش فرض سرور تغییر نکنه و برای فقط سایت های خاص ( مثل chatGPT, NetFlix , Disney ) از سرویس warp استفاده کنه، باید چیکار کنیم؟
   
   
-  قدم اول غیرفعال کردن آدرس دهی پیش فرض سرویس warp و استفاده از سرویس warp روی پروکسی هست.
+  قدم اول حذف تظنیمات قبلی هست
+  
+  ```
+  warp u
+  ```
+  
+  یا منوی 7 
+
 
 برای وارد شدن به تنظیمات، میتونیم از دستور warp استفاده کنیم.
-  
+
+
+  ```
+  7.  Turn off, uninstall WARP interface, Linux Client and WireProxy (warp u) 
+  ```
+
+
+سرور رو ریبوت میکنیم.
+
+***
+
+بعد از ریبوت شدن دوباره دستور زیر رو وارد میکنیم.
+
+
+```
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash menu.sh
+
+```
+
 ```
     - 13.Install wireproxy. Wireguard client that exposes itself as a socks5 proxy or tunnels (bash menu.sh w)
 ```
@@ -89,7 +114,12 @@ curl -6 myip.wtf/json --interface wgcf
 
 بعدش نوع اکانت رو میپرسه که با هم اکانت free اوکی میکنیم
 
-بعد میره برای نصب و اعمال تغییرات جدید.
+بعد میره برای نصب و اعمال تغییرات جدید. ممکنه یه کم طول بکشه، صبور باشید. ( حداکثر دو دقیقه)
+
+
+در انتها نتیحه رو بهمون نشون میده
+
+![image](https://user-images.githubusercontent.com/120102306/230783846-98f6d17d-c80c-466b-a6ec-2cc2846151b5.png)
 
 
 
