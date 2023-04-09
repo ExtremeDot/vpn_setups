@@ -1,3 +1,10 @@
+### نصب DNS دایمی
+
+برای اینکه مدام تنظیمات DNS پیشفرض لینوکس تغییر نکنه، از آموزش زیر استفاده میکنیم
+
+آموزش تنظیم کردن[ DNS لینوکس به تنظیمات داعمی](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/dns-permanent)
+***
+
 ```
 wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash menu.sh
 
