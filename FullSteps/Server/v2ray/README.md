@@ -23,15 +23,17 @@ extremeDOT
 
 ![image](https://user-images.githubusercontent.com/120102306/230754304-28b409e3-bbe2-4741-a189-eb43ff8fe355.png)
 
- - 7) Input Domain and Email Address
+گزینه 7  رو انتخاب میکنیم، ادرس دامین و ایمیل رو وارد میکنیم
+ - 7)Input Domain and Email Address
   - NEW SERVER: Please enter damain address: **yourdomain.com**
   - NEW SERVER: Please enter E-MAIL address: **myemail.gmail.com**
 
- - 4)  Install Certificate USING ACME
+گزینه 4 رو انتخاب میکنیم، در صورتی که اطلاعات درسته، y رو وارد کنید و بقیه داستان خودکار انحام میشه
+ - 4)Install Certificate USING ACME
   - Domain name and Email Address are correct? [y/n]: **y**
    -  the keys will store here
 
-
+در انتها کلیدهای امنیتی اینجا ذخیره میشه
 ```
 /root/cert.crt
 /root/private.key
