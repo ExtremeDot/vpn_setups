@@ -26,8 +26,7 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash 
 ***
 
 
-* گزینه 6 رو میزنیم که آی پی نسخه 4 و 6 رو داشته باشیم
-
+### گزینه های پیش رو
 
 
 
@@ -38,6 +37,7 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash 
  -  3. Use free account (default)
 ```
 
+با انتخاب گزینه 6، اینترنت VPS به سرویس کلادفلر وصل میشه، یعنی توی همه حالات شما وقتی به سرور وصل میشی، اینترنتی که میگیرید اینترنت کلادفلر هست. معمولا هیچ محدودیتی نداره و هیج وقت هم آی پی واقعی شما توی سایت ها نشون داده نمیشه.
 ***
 
 ### تست کردن کانکش 
