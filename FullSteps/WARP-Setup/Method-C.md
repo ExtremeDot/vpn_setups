@@ -81,30 +81,4 @@ curl -4 myip.wtf/json  --interface WARP
 
 ***
 
-برای استخراج کانفیگ ها
-دستور زیر رو میزنیم
-  
-```
-warp-go e
-```
-
-***
-
-تنظیمات وایرگارد توی این آدرس ذخیره میشه
-
-
-```
-nano /opt/warp-go/wgcf.conf
-```
-
-***
-
-تنظیمات برای v2ray هم اینجا ذخیره میشه
-
-```
-nano /opt/warp-go/singbox.json
-```
-
-
-***
 
