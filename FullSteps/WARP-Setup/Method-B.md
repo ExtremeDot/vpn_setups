@@ -62,6 +62,40 @@ curl -6 myip.wtf/json --interface wgcf
   
   میبینیم که جفت پروتوکل های نسخه 4 و 6 روی ISP کلادفلر هست
   
+  #### اینترنت پیش فرض روی سرور رو چک میکنیم ببینیم روی کلادفلر ست شده یا اینکه تغییر نکرده ؟
+  
+  ```
+  curl -4 myip.wtf/json
+  ```
+  
+  میبینیم که با این تنظیمات، اینترنت پیش فرض روی سرویس warp مسیردهی شده و اگه با VPN هم به سرور وصل بشیم، اینترنت دریافتی ما از سرویس warp کلادفلر هست...
+  
+  ***
+  
+  - ###  حالا اگه بخوایم اینترنت پیش فرض سرور تغییر نکنه و برای فقط سایت های خاص ( مثل chatGPT, NetFlix , Disney ) از سرویس warp استفاده کنه، باید چیکار کنیم؟
+  
+  
+  قدم اول غیرفعال کردن آدرس دهی پیش فرض سرویس warp و استفاده از سرویس warp روی پروکسی هست.
+
+برای وارد شدن به تنظیمات، میتونیم از دستور warp استفاده کنیم.
+  
+```
+    - 13.Install wireproxy. Wireguard client that exposes itself as a socks5 proxy or tunnels (bash menu.sh w)
+```
+
+گزینه 13 رو انتخاب میکنیم.
+
+شماره پورت رو وارد کنید، من از 49999 استفاده میکنم که توی تنظیمات بعدی هم قاتی نکنم.
+
+بعدش نوع اکانت رو میپرسه که با هم اکانت free اوکی میکنیم
+
+بعد میره برای نصب و اعمال تغییرات جدید.
+
+
+
+      
+***
+
   
   ***
   
@@ -77,8 +111,9 @@ curl -6 myip.wtf/json --interface wgcf
   6)Disconnect
   
 ```
-***
-
+ ***
+ 
+ 
   
   - 10. Sync the latest version (warp v) 
   
@@ -86,12 +121,7 @@ curl -6 myip.wtf/json --interface wgcf
   bash /etc/wireguard/menu.sh
   
   ```
-  
-    - 13.Install wireproxy. Wireguard client that exposes itself as a socks5 proxy or tunnels (bash menu.sh w)
-      - Please customize the Client port (1000-65535. Default to 40000 if it is blank): **49999**
-      - 1.Use free account (default)
-      
-***
+  ***
 
 
  Run again with warp [option] [lisence], such as
