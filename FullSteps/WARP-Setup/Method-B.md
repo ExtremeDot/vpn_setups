@@ -22,8 +22,9 @@ Select - 1. English (default)
 
 ***
 
- - 3.  Add WARP dualstack interface to IPv4 only VPS (bash menu.sh d)
-  - 1. Use free account (default)
+- 3.  Add WARP dualstack interface to IPv4 only VPS (bash menu.sh d)
+
+- 1. Use free account (default)
    -  Please choose the priority: 
     -  2. IPv6
  
