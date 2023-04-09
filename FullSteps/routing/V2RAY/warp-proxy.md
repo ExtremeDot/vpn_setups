@@ -60,112 +60,47 @@ NOTE: Port is **49999**
 
 
 ```
-{
-  "log": {
-    "loglevel": "warning",
-    "access": "./access.log"
-  },
-  "api": {
-    "services": [
-      "HandlerService",
-      "LoggerService",
-      "StatsService"
+[
+  {
+    "inboundTag": [
+      "api"
     ],
-    "tag": "api"
+    "outboundTag": "api",
+    "type": "field"
   },
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 62789,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
-      "tag": "api"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    },
-    {
-      "tag": "WARP_OUT",
-      "protocol": "socks",
-      "settings": {
-        "servers": [
-          {
-            "address": "127.0.0.1",
-            "port": 49999
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp"
-      }
-    }
-  ],
-  "policy": {
-    "levels": {
-      "0": {
-        "statsUserUplink": true,
-        "statsUserDownlink": true
-      }
-    },
-    "system": {
-      "statsInboundDownlink": true,
-      "statsInboundUplink": true
-    }
-  },
-  "routing": {
-    "rules": [
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "type": "field",
-        "outboundTag": "WARP_OUT",
-        "domain": [
-          "geosite:netflix",
-          "geosite:disney",
-          "geosite:spotify",
-          "geosite:youtube",
-          "geosite:hulu",
-          "geosite:hbo",
-          "geosite:bbc",
-          "geosite:fox",
-          "geosite:google",
-          "domain:openai.com",
-          "domain:ai.com"
-        ]
-      },
-      {
-        "ip": [
-          "geoip:private"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ],
-        "type": "field"
-      }
+  {
+    "type": "field",
+    "outboundTag": "WARP_OUT",
+    "domain": [
+      "geosite:netflix",
+      "geosite:pornhub",
+      "geosite:disney",
+      "geosite:spotify",
+      "geosite:youtube",
+      "geosite:hulu",
+      "geosite:hbo",
+      "geosite:bbc",
+      "geosite:fox",
+      "geosite:google",
+      "domain:openai.com",
+      "domain:ai.com"
     ]
   },
-  "stats": {}
-}
+  {
+    "ip": [
+      "geoip:private"
+    ],
+    "outboundTag": "blocked",
+    "type": "field"
+  },
+  {
+    "outboundTag": "blocked",
+    "protocol": [
+      "bittorrent"
+    ],
+    "type": "field"
+  }
+]
 
 ```
 
