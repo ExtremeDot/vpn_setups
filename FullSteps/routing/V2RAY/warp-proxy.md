@@ -5,6 +5,7 @@
    - Xray Configuration
 
 ***
+## - تغییرات در outbounds
 - Step 1: Configuration of Outbounds
 
 edit it as below 
@@ -44,6 +45,7 @@ NOTE: Port is **49999**
 
 ***
 
+# - تغییرات در مسیردهی یا روتینگ
    - Step 2: Configuration of Routing rules
 
 edit as below
