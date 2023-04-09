@@ -172,7 +172,9 @@ eMenu
  - goto V2ray Panel 
   - Panel Settings
    - Xray Configuration
-   - Step 1: Configuration of Outbounds
+
+***
+- Step 1: Configuration of Outbounds
 
 edit it as below 
 NOTE: Port is **49999**
@@ -209,6 +211,7 @@ NOTE: Port is **49999**
 ![image](https://user-images.githubusercontent.com/120102306/230755547-9c4d581b-4de4-499e-99e2-2d730796f50d.png)
 
 
+***
 
    - Step 2: Configuration of Routing rules
 
