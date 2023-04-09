@@ -253,7 +253,12 @@ edit as below
     "type": "field"
   }
 ]
+
 ```
+
+ - Save and Restart the panel
+
+![image](https://user-images.githubusercontent.com/120102306/230755626-a773edf7-9953-4615-866c-8cea4cbd0da3.png)
 
 
   
