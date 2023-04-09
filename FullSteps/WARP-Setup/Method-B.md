@@ -3,16 +3,17 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash men
 
 ```
 
+***
 
-  - 1. English (default)
+
+Select - 1. English (default)
 
 
 
 ![image](https://user-images.githubusercontent.com/120102306/230756302-5a93a41d-4352-4c91-b281-5928df57e7b4.png)
 
+
 ***
-
-
 
   
   
