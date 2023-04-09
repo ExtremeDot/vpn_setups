@@ -6,7 +6,7 @@
 
 
  - نصب اسکریپت
- - 
+
 
 ```
 wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash warp-go.sh
@@ -23,11 +23,19 @@ wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash 
 
 ***
 
-- گزینه 6 رو میزنیم که آی پی نسخه 4 و 6 رو داشته باشیم
-- 
 
-  - 6. Add WARP dual-stacks global network interface for IPv4 only, IPv6 priority (bash warp-go.sh d)
-    -  3. Use free account (default)
+* گزینه 6 رو میزنیم که آی پی نسخه 4 و 6 رو داشته باشیم
+
+
+
+
+```
+
+- 6. Add WARP dual-stacks global network interface for IPv4 only, IPv6 priority (bash warp-go.sh d)
+  
+ -  3. Use free account (default)
+```
+
 
 - در انتها ساخته که شد، باید خروجی کانفیگ رو برای وایرکارد و تنظیمات v2ray استخرا کنیم
 
