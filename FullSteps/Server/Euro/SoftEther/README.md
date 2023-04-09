@@ -1,4 +1,6 @@
-  *  ### Update and Upgrade the machine
+ # نصب سرور سافت اتر  
+
+  ### Update and Upgrade the machine
 
 ``` Update and Upgrade the machine
 apt-get update && apt-get upgrade -y
