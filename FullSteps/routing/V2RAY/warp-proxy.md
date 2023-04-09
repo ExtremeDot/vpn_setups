@@ -1,14 +1,12 @@
-- #### Import Cloudflare Proxy Server into V2RAY Config
+در این آموزش میخوایم، برای سایت هایی که مشخص میکنیم، اینترنت از پروکسی 49999 ، اینترنت warp، استفاده کنه
 
- - goto V2ray Panel 
-  - Panel Settings
-   - Xray Configuration
+
 
 ***
 ## - تغییرات در outbounds
-- Step 1: Configuration of Outbounds
 
-edit it as below 
+
+
 NOTE: Port is **49999**
 
 ```
@@ -44,6 +42,7 @@ NOTE: Port is **49999**
 
 
 ***
+
 
 # - تغییرات در مسیردهی یا روتینگ
    - Step 2: Configuration of Routing rules
