@@ -1,6 +1,12 @@
 در این آموزش میخوایم، برای سایت هایی که مشخص میکنیم، اینترنت از پروکسی 49999 ، اینترنت warp، استفاده کنه
 
+این تغییرات روی فایل config.json صورت میگیره.
 
+توی پنل v2ray توی قسمت xray configuration میتونید ببینید.
+
+قبل از انجام این تغییرات باید از فعال بودن پروکسی روی پورت 49999 مطمین باشیم.
+
+برای راه اندازی پروکسی وارپ روی پورت 49999، روش اول یا روش چهارم (پروکسی وایر) رو اجرا کنید... ( [لینک آموزش های فعال سازی وارپ](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/WARP-Setup))
 
 ***
 ## - تغییرات در outbounds
@@ -130,5 +136,5 @@ NOTE: Port is **49999**
 ***
 
 
-### نمونه فایل [config
-](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/routing/V2RAY/config-sample.json)
+### نمونه فایل [config](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/routing/V2RAY/config-sample.json)
+
