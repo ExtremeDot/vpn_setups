@@ -1,6 +1,6 @@
 
 
-### راه اندازی سرور 
+### [راه اندازی سرور ](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/Server)
 
  
   - [Soft Ether](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/Server/SoftEther)
@@ -14,7 +14,7 @@
 
 ***
 
-### راه اندازی سرویس وارپ
+### [راه اندازی سرویس وارپ](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/WARP-Setup)
 
 - [تمامی روش ها](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/WARP-Setup)
 
