@@ -18,11 +18,8 @@
 
 ### راه اندازی سرویس وارپ
 
-- [روش اول - رسمی خود کلاد فلر](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-A.md)
+- [تمامی روش ها](https://github.com/ExtremeDot/vpn_setups/tree/main/FullSteps/WARP-Setup)
 
-- [روش دوم - پیشنهادی](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-B.md)
-
-- [روش سوم - warp-go](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/WARP-Setup/Method-C.md)
 
 ***
 
