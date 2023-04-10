@@ -126,6 +126,13 @@ NOTE: Port is **49999**
 "geosite:netflix"
 ```
 
+برای رفع مشکل باز شدن اینستاگرام هم میتونیم تگ instagram رو بهش اضافه کنیم.
+
+```
+"geosite:instagram"
+```
+
+اگه میخواید تگ های بیشتری رو داشته باشید[ به فایل منبع مراجعه کنید](https://github.com/v2fly/domain-list-community/tree/master/data)
 
 ***
 
@@ -137,4 +144,6 @@ NOTE: Port is **49999**
 
 
 ### نمونه فایل [config](https://github.com/ExtremeDot/vpn_setups/blob/main/FullSteps/routing/V2RAY/config-sample.json)
+
+***
 
