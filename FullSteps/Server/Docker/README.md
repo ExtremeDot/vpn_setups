@@ -40,3 +40,23 @@ sudo systemctl status docker
 docker-version
 ```
 
+***
+
+
+```
+ sudo systemctl start docker
+
+```
+
+
+```
+ sudo systemctl enable docker
+ 
+ ```
+ 
+ ```
+ sudo systemctl restart docker
+
+```
+
+
