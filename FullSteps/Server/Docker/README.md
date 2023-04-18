@@ -37,7 +37,7 @@ sudo systemctl status docker
 ```
 
 ```
-docker-version
+docker -version
 ```
 
 ***
