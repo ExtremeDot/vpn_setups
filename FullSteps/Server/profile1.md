@@ -213,33 +213,6 @@ vasma
 
 نصب پنل xray
 
-```
-bash <(curl -Ls  https://raw.githubusercontent.com/qist/xray-ui/main/install.sh)
-```
-
-```
-以下设置内容建议自定义，以防止账号密码及端口泄露
-
-设置xray-ui登录用户名（回车跳过为随机6位字符）：
-```
-
-username
-
-```
-设置xray-ui登录密码（回车跳过为随机6位字符）：
-```
-
-password
-
-```
-设置xray-ui登录端口[1-65535]（回车跳过为2000-65535之间的随机端口）：
-```
-
-port
-
-```
-ufw disable
-```
 
 
 
